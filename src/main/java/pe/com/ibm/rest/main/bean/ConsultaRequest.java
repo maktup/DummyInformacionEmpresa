@@ -2,8 +2,8 @@ package pe.com.ibm.rest.main.bean;
 
 public class ConsultaRequest{
 
-	public String codigo;
-	public String dni;
+	private String codigo;
+	private String dni;
 
 	public String getCodigo() {
 		return codigo;

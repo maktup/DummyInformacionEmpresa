@@ -29,33 +29,62 @@ public class EmpresaController{
             }
 
             //BODY: 
-            if( objRequestParam.codigo == null || objRequestParam.dni == null ){
+            if( objRequestParam.getCodigo() == null || objRequestParam.getDni() == null ){
                 return ResponseEntity.status( HttpStatus.BAD_REQUEST).body( Map.of( "ERROR", "Debe enviar 'codigo' & 'dni' en el body" ) );
             }
 
-            //SIMULACION: 
-            Empresa objEmpresa_01 = new Empresa(
-                    "20123456789",
-                    "IBM DEL PERU S.A.",
-                    "Av. Javier Prado Este 4200 - Lima",
-                    "(01) 123-4567",
-                    "SOCIEDAD ANONIMA",
-                    "ACTIVA"
-            );
             
-            Empresa objEmpresa_02 = new Empresa(
-                    "21198756789",
-                    "ORACLE DEL PERU S.A.",
-                    "Av. Tomas Marzano 1050 - Surco",
-                    "(01) 444-4517",
-                    "SOCIEDAD ANONIMA",
-                    "ACTIVA"
-            );
-            
+            Empresa objEmpresa_01 = null;
+            Empresa objEmpresa_02 = null;
             List<Empresa> listarEmpresas = new ArrayList<Empresa>();
-            listarEmpresas.add( objEmpresa_01 ); 
-            listarEmpresas.add( objEmpresa_02 ); 
             
+            if( objRequestParam.getCodigo().equals( "EMP-001" ) ) {
+                objEmpresa_01 = new Empresa(
+	                        "20123456789",
+	                        "IBM DEL PERU S.A.",
+	                        "Av. Javier Prado Este 4200 - Lima",
+	                        "(01) 123-4567",
+	                        "SOCIEDAD ANONIMA",
+	                        "ACTIVA"
+                );
+        
+                listarEmpresas.add( objEmpresa_01 );  
+            }
+            else if( objRequestParam.getCodigo().equals( "EMP-002" ) ) {                
+                     objEmpresa_02 = new Empresa(
+		                        "21198756789",
+		                        "ORACLE DEL PERU S.A.",
+		                        "Av. Tomas Marzano 1050 - Surco",
+		                        "(01) 444-4517",
+		                        "SOCIEDAD ANONIMA",
+		                        "ACTIVA"
+                     );
+                      
+                     listarEmpresas.add( objEmpresa_02 ); 
+            }
+            else{
+                 objEmpresa_01 = new Empresa(
+                        "20123456789",
+                        "IBM DEL PERU S.A.",
+                        "Av. Javier Prado Este 4200 - Lima",
+                        "(01) 123-4567",
+                        "SOCIEDAD ANONIMA",
+                        "ACTIVA"
+                 );
+                
+                 objEmpresa_02 = new Empresa(
+                        "21198756789",
+                        "ORACLE DEL PERU S.A.",
+                        "Av. Tomas Marzano 1050 - Surco",
+                        "(01) 444-4517",
+                        "SOCIEDAD ANONIMA",
+                        "ACTIVA"
+                 );
+                 
+                 listarEmpresas.add( objEmpresa_01 ); 
+                 listarEmpresas.add( objEmpresa_02 ); 
+            }
+ 
             //RESPONSE: 
             Map<String, Object> response = new HashMap<>();
             response.put( "headers", Map.of( "X-IBM-Client-Id",     clientIdParam,

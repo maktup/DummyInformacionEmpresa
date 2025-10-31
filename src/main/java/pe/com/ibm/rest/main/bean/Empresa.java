@@ -1,12 +1,5 @@
 package pe.com.ibm.rest.main.bean;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+ 
 public class Empresa {
     private String ruc;
     private String razonSocial;

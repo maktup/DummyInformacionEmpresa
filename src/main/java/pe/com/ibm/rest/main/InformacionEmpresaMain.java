@@ -4,9 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class InformacionEmpresaMain {
-    public static void main(String[] args) {
-        SpringApplication.run(InformacionEmpresaMain.class, args);
-    }
+public class InformacionEmpresaMain{
+	
+      public static void main( String[] argumentos ) {
+             SpringApplication.run( InformacionEmpresaMain.class, argumentos );
+      }
 }
 
