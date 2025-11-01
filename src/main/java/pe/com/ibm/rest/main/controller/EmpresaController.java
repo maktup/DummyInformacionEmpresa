@@ -36,10 +36,11 @@ public class EmpresaController{
             
             Empresa objEmpresa_01 = null;
             Empresa objEmpresa_02 = null;
-            List<Empresa> listarEmpresas = new ArrayList<Empresa>();
+            List<Empresa> listarEmpresas = null;
             
             if( objRequestParam.getCodigo().equals( "EMP-001" ) ) {
-                objEmpresa_01 = new Empresa(
+            	listarEmpresas = new ArrayList<Empresa>();
+                objEmpresa_01  = new Empresa(
 	                        "20123456789",
 	                        "IBM DEL PERU S.A.",
 	                        "Av. Javier Prado Este 4200 - Lima",
@@ -50,7 +51,8 @@ public class EmpresaController{
         
                 listarEmpresas.add( objEmpresa_01 );  
             }
-            else if( objRequestParam.getCodigo().equals( "EMP-002" ) ) {                
+            else if( objRequestParam.getCodigo().equals( "EMP-002" ) ) {    
+            	     listarEmpresas = new ArrayList<Empresa>();
                      objEmpresa_02 = new Empresa(
 		                        "21198756789",
 		                        "ORACLE DEL PERU S.A.",
@@ -63,7 +65,8 @@ public class EmpresaController{
                      listarEmpresas.add( objEmpresa_02 ); 
             }
             else{
-                 objEmpresa_01 = new Empresa(
+            	 listarEmpresas = new ArrayList<Empresa>();
+                 objEmpresa_01  = new Empresa(
                         "20123456789",
                         "IBM DEL PERU S.A.",
                         "Av. Javier Prado Este 4200 - Lima",
@@ -72,7 +75,7 @@ public class EmpresaController{
                         "ACTIVA"
                  );
                 
-                 objEmpresa_02 = new Empresa(
+                 objEmpresa_02  = new Empresa(
                         "21198756789",
                         "ORACLE DEL PERU S.A.",
                         "Av. Tomas Marzano 1050 - Surco",
